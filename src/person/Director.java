@@ -1,6 +1,8 @@
 package person;
 
-public final class Director extends person.Person {
+import person.Person;
+
+public final class Director extends Person {
 
     private final int numberOfShows;
 

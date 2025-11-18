@@ -5,16 +5,14 @@ import person.Director;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
-public abstract class Show {
+public class Show {
 
     protected final String title;
     protected final int duration;
     protected final Director director;
     protected final List<Actor> listOfActors;
     private final String className;
-    private static final Logger log = Logger.getLogger(Show.class.getName());
 
     public Show(String title, int duration, Director director) {
         this.title = title;
@@ -34,17 +32,17 @@ public abstract class Show {
 
     public void addActor(Actor actor) {
         if (actor == null) {
-            log.warning("Rejected. " + className + " - null not allowed.");
+            System.out.println("Rejected. " + className + " - null not allowed.");
             return;
         }
 
         if (listOfActors.contains(actor)) {
-            log.warning("Rejected. "
+            System.out.println("Rejected. "
                     + className + " - attempt to add existing actor: " + actor.getSurname());
             return;
         }
 
-        listOfActors.add((Actor) actor);
+        listOfActors.add(actor);
         System.out.printf("%s - added new actor: %s\n", className, actor);
     }
 
@@ -54,7 +52,7 @@ public abstract class Show {
                 .findAny().orElse(null));
 
         if (oldActorIndex == -1) {
-            log.warning("Rejected. " + className
+            System.out.println("Rejected. " + className
                     + " - actor with surname \"" + surnameToDelete + "\" not found.");
             return;
         }
@@ -69,4 +67,6 @@ public abstract class Show {
                 className, director.getName(), director.getSurname());
     }
 }
+
+
 

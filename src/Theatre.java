@@ -1,8 +1,6 @@
 import person.*;
 import show.*;
 
-import show.Show;
-
 public class Theatre {
 
     public static void main(String[] args) {
@@ -14,21 +12,26 @@ public class Theatre {
         Director director1 = new Director(Gender.MALE, "Chris", "Potato", 20);
         Director director2 = new Director(Gender.MALE, "Denis", "Romao", 15);
 
-        Show play = new Play("Romeo and Juliet", 160, director1);
+        Show play = new Show("Romeo and Juliet", 160, director1) {};
+
+
+        Person bizet = new Person(Gender.MALE, "Georges", "Bizet") {};
+        Person tchaikovsky = new Person(Gender.MALE, "Pyotr Ilyich", "Tchaikovsky") {};
+        Person petipa = new Person(Gender.MALE, "Marius", "Petipa") {};
 
         MusicalShow opera = new Opera(
                 "Carmen",
                 180, director2,
-                "Jorge Bizet",
+                bizet,
                 "opera libretto",
                 40);
 
         MusicalShow ballet = new Ballet(
                 "The Nutcracker",
                 100, director2,
-                "Pyotr Ilyich Tchaikovsky",
+                tchaikovsky,
                 "ballet libretto",
-                "Marius Petipa");
+                petipa);
 
         // добавляем актеров
         System.out.println();

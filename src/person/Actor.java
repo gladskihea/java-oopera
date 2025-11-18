@@ -1,8 +1,10 @@
 package person;
 
 import java.util.Objects;
+import person.Person;
 
-public final class Actor extends person.Person {
+
+public final class Actor extends Person {
 
     private final int height;
 
